@@ -226,18 +226,6 @@ async function getModals(): Promise<Modal[]> {
     return modals;
 }
 
-async function getSelectMenus(): Promise<SelectMenu[]> {
-    let selectMenus: SelectMenu[] = [];
-
-    for (let file of fs.readdirSync("./src/selectMenus/").filter(file => file.endsWith(".ts"))) {
-        let imports = await import(`../selectMenus/${file}`);
-
-        let selectMenu = new imports.default();
-        selectMenus.push(selectMenu);
-    }
-    return selectMenus;
-}
-
 export interface CommandOption {
     type: ApplicationCommandOptionType
     name: string;
@@ -456,26 +444,6 @@ export class Bot {
                 } else {
                     interaction.reply({ content: "Modal not found", ephemeral: true });
                 }
-            } else if (interaction.isSelectMenu()) {
-                const selectMenu: Undefinable<SelectMenu> = this.selectMenus.find((selectMenu) => selectMenu.id() === interaction.customId);
-
-                if (selectMenu) {
-                    if (selectMenu.permissions().adminRole) {
-                        const roles = await (await (await this.client.guilds.fetch(interaction.guildId!)).members.fetch(interaction.user.id)).roles.cache;
-                        if (!roles.some(role => this.adminRoles.get(interaction.guildId!)?.includes(role.id))) {
-                            interaction.reply({ content: "This action is restricted to admin users.", ephemeral: true });
-                            return;
-                        }
-                    }
-                    selectMenu
-                        .run(interaction, this)
-                        .catch((error) => {
-                            console.error("Error executing select menu:", error);
-                            interaction.reply("An error occurred while executing the select menu.");
-                        });
-                } else {
-                    interaction.reply({ content: "Select menu not found", ephemeral: true });
-                }
             }
         });
 
@@ -505,7 +473,6 @@ export class Bot {
         this.ctxmenus = await getMenus();
         this.buttons = await getButtons();
         this.modals = await getModals();
-        this.selectMenus = await getSelectMenus();
     }
 
     getButton (id: string, args?: string[]): Undefinable<Button> {
@@ -516,17 +483,12 @@ export class Bot {
         return this.modals.find(modal => modal.id() === id);
     }
 
-    getSelectMenu (id: string): Undefinable<SelectMenu> {
-        return this.selectMenus.find(selectMenu => selectMenu.id() === id);
-    }
-
     client: Client<true>;
     static client: Client;
     commands: Command[] = [];
     ctxmenus: ContextMenu[] = [];
     buttons: Button[] = [];
     modals: Modal[] = [];
-    selectMenus: SelectMenu[] = [];
     adminRoles: Map<string, string[]> = new Map();
     private static webhookUrls: Map<string, { reports: string | null, logs: string | null}> = new Map();
     cooldowns: Map<string, { command: string, time: number }> = new Map();
