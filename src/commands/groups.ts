@@ -7,9 +7,6 @@ import {
 } from "discord.js";
 import DB, {ButtonType} from "../classes/DB";
 import Utils from "../classes/Utils";
-// import DB, { ButtonType } from "../classes/DB";
-// import Utils from "../classes/Utils";
-
 
 export default class extends Command {
     override async run(interaction: ChatInputCommandInteraction, bot: Bot): Promise<void> {
@@ -140,11 +137,6 @@ export default class extends Command {
                     embeds: [
                         Utils.getEmbed(Utils.EmbedType.Purple, { title: `Success`, description: `Edited group \`${interaction.options.getString("name")}\`.`})
                     ],
-                    //components: [
-                    //    new ActionRowBuilder<ButtonBuilder>().addComponents(
-                    //        await bot.getButton("panelexampledispensebtn")?.build([interaction.options.getString("label")! ?? undefined, interaction.options.getString("style")! as ButtonType ?? undefined, interaction.options.getString("emoji")! ?? undefined])!
-                    //    )
-                    //]
                 });
 
                 await Utils.sendWebhook(interaction.guildId!, Utils.WebhookType.Logs, [
@@ -179,10 +171,6 @@ export default class extends Command {
                     })
                 ])
             } break;
-
-            // case "list": {
-            //
-            // } break;
         }
     }
 
@@ -319,12 +307,6 @@ export default class extends Command {
                     }
                 ]
             },
-            // {
-            //     name: "list",
-            //     description: "List all groups",
-            //     type: ApplicationCommandOptionType.Subcommand
-            // }
-            // This isn't needed because of the links list cmd
         ]
     }
 

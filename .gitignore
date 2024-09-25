@@ -9,6 +9,7 @@ node_modules
 /src/commands/say.ts
 /src/commands/eval.ts
 /src/modals/EvalModal.ts
+/src/json/links.json
 
 # build
 /dist

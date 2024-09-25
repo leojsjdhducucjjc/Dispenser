@@ -1,0 +1,12 @@
+{
+    "groups": [
+        {
+            "GroupID": "group1",
+            "domains": ["domain1.com", "domain2.com"]
+        },
+        {
+            "GroupID": "group2",
+            "domains": ["domain3.com", "domain4.com"]
+        }
+    ]
+}

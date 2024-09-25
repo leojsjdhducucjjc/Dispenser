@@ -102,6 +102,31 @@ export default class DB {
         return map;
     }
 
+    static async clearAllDomains(serverId: string): Promise<any> {
+        const server = await prisma.server.findFirst({
+            where: {
+                serverId: serverId
+            }
+        });
+
+        if (!server) {
+            throw new Error(`Server with ID \`${serverId}\` does not exist.`);
+        }
+
+        await prisma.domain.deleteMany({
+            where: {
+                serverId: serverId
+            }
+        });
+
+        return {
+            message: `All domains for server ID \`${serverId}\` have been cleared.`,
+            deletedCount: (await prisma.domain.count({
+                where: { serverId: serverId }
+            })) 
+        };
+    }
+    
      static async getDomain(serverId: string, userId: string, groupId: string, roleIds: string[]): Promise<any> {
         if (!groupId) return {
                 type: "error",
