@@ -5,7 +5,7 @@ export default class Utils {
     static EmbedType = {
         Red: 0xff0000,
         Purple: 0x814fff,
-        Coffee: 0x6f4e37,
+        Black: 0x000000,
         Random: Math.floor(Math.random() * 16777215)
     }
 

@@ -11,13 +11,13 @@ export default class extends Command {
         await interaction.deferReply({ ephemeral: interaction.options.getBoolean("ephemeral") ?? true });
         await interaction.editReply({
             embeds: [
-                Utils.getEmbed(Utils.EmbedType.Coffee, {
+                Utils.getEmbed(Utils.EmbedType.Black, {
                     title: "Configuration Panel",
                     description: "This is the admin configuration panel.\nYou can configure the bot using the buttons below.",
                     fields: [
                         {
                             name: "View Information",
-                            value: "[Github](https://github.com/NebulaServices/Dispenser) | [Docs](https://nebulaservices.github.io/Dispenser/) "
+                            value: "[Github](https://github.com/UseInterstellar/Dispenser) | [Docs](https://nebulaservices.github.io/Dispenser/) "
                         },
                         {
                             name: "Edit Webhook URLs",
@@ -31,8 +31,8 @@ export default class extends Command {
                         }
                     ],
                     footer: {
-                        text: "Dispenser is a Nebula Service",
-                        iconURL: "https://cdn.nsmbu.net/dispenser/ndl.png"
+                        text: "Created by Nebula Services, Modified by UseInterstellar.",
+                        iconURL: interaction.client.user.displayAvatarURL()
                     }
                 })
             ],
