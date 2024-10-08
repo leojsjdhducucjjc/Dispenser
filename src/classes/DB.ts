@@ -308,7 +308,7 @@ export default class DB {
      }
 
     static async createDomain (serverId: string, userId: string, domain: string, groupId: string) {
-        let domainRegex = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+        let domainRegex = /^(?!-)([a-zA-Z0-9-]{1,63}(?<!-)\.)+[a-zA-Z]{2,}$/;
         if (!domainRegex.test(domain)) {
             throw new Error(`Domain ${domain} is not valid.`);
         }
