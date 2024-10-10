@@ -38,7 +38,7 @@ export default class extends Command {
                 }
                 await interaction.editReply({
                     embeds: [
-                        Utils.getEmbed(Utils.EmbedType.Purple, { title: `Success`, description: `Created group \`${interaction.options.getString("name")}\`.\n\nBelow is an example of what the button will look like.`})
+                        Utils.getEmbed(Utils.EmbedType.Default, { title: `Success`, description: `Created group \`${interaction.options.getString("name")}\`.\n\nBelow is an example of what the button will look like.`})
                     ],
                     components: [
                         new ActionRowBuilder<ButtonBuilder>().addComponents(
@@ -47,7 +47,7 @@ export default class extends Command {
                     ]
                 });
                 await Utils.sendWebhook(interaction.guildId!, Utils.WebhookType.Logs, [
-                    Utils.getEmbed(Utils.EmbedType.Purple, {
+                    Utils.getEmbed(Utils.EmbedType.Default, {
                         title: `Group Created`,
                         fields: [
                             {
@@ -86,10 +86,10 @@ export default class extends Command {
                     await interaction.editReply({ embeds: [ Utils.getEmbed(Utils.EmbedType.Red, { title: `Failed to delete group`, description: e!.toString() }) ] });
                     return;
                 }
-                await interaction.editReply({ embeds: [ Utils.getEmbed(Utils.EmbedType.Purple, { title: `Success`, description: `Deleted group \`${interaction.options.getString("name")}\`.`}) ]});
+                await interaction.editReply({ embeds: [ Utils.getEmbed(Utils.EmbedType.Default, { title: `Success`, description: `Deleted group \`${interaction.options.getString("name")}\`.`}) ]});
 
                 await Utils.sendWebhook(interaction.guildId!, Utils.WebhookType.Logs, [
-                    Utils.getEmbed(Utils.EmbedType.Purple, {
+                    Utils.getEmbed(Utils.EmbedType.Default, {
                         title: `Group Deleted`,
                         fields: [
                             {
@@ -135,12 +135,12 @@ export default class extends Command {
                 }
                 await interaction.editReply({
                     embeds: [
-                        Utils.getEmbed(Utils.EmbedType.Purple, { title: `Success`, description: `Edited group \`${interaction.options.getString("name")}\`.`})
+                        Utils.getEmbed(Utils.EmbedType.Default, { title: `Success`, description: `Edited group \`${interaction.options.getString("name")}\`.`})
                     ],
                 });
 
                 await Utils.sendWebhook(interaction.guildId!, Utils.WebhookType.Logs, [
-                    Utils.getEmbed(Utils.EmbedType.Purple, {
+                    Utils.getEmbed(Utils.EmbedType.Default, {
                         title: `Group Edited`,
                         fields: [
                             {

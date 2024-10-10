@@ -13,10 +13,10 @@ export default class extends Command {
             return;
         }
 
-        await interaction.editReply({ embeds: [ Utils.getEmbed(Utils.EmbedType.Purple, { title: `Success!`, description: `Unbanned user <@${interaction.options.getUser("user")?.id}> (${interaction.options.getUser("user")?.tag})`}) ]});
+        await interaction.editReply({ embeds: [ Utils.getEmbed(Utils.EmbedType.Default, { title: `Success!`, description: `Unbanned user <@${interaction.options.getUser("user")?.id}> (${interaction.options.getUser("user")?.tag})`}) ]});
 
         await Utils.sendWebhook(interaction.guildId!, Utils.WebhookType.Logs, [
-            Utils.getEmbed(Utils.EmbedType.Purple, {
+            Utils.getEmbed(Utils.EmbedType.Default, {
                 title: `User Unbanned`,
                 fields: [
                     {

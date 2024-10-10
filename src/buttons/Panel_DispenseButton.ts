@@ -125,7 +125,7 @@ export default class extends Button {
                     try {
                         m = await interaction.user.send({
                             embeds: [
-                                Utils.getEmbed(Utils.EmbedType.Black, {
+                                Utils.getEmbed(Utils.EmbedType.Default, {
                                     title: "Proxy Request",
                                     description: `Enjoy your site!\n` + response.domain,
                                     fields: [

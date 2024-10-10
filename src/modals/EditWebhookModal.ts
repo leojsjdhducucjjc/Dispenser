@@ -41,7 +41,7 @@ export default class extends Modal {
         });
 
         await Utils.sendWebhook(interaction.guild!.id, Utils.WebhookType.Logs, [
-            Utils.getEmbed(Utils.EmbedType.Purple, {
+            Utils.getEmbed(Utils.EmbedType.Default, {
                 title: `Webhook URLs Edited`,
                 fields: [
                     {

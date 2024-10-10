@@ -19,9 +19,9 @@ export default class extends Command {
                     await interaction.editReply({ embeds: [ Utils.getEmbed(Utils.EmbedType.Red, { title: `Failed to reset user`, description: e!.toString() }) ] });
                     return;
                 }
-                await interaction.editReply({ embeds: [ Utils.getEmbed(Utils.EmbedType.Purple, { title: `Success!`, description: `Reset user ${interaction.options.getUser("user")?.tag} \nI reset their usage count${interaction.options.getBoolean("dupes") ? ", and their dupes." : " only."}`}) ]});
+                await interaction.editReply({ embeds: [ Utils.getEmbed(Utils.EmbedType.Default, { title: `Success!`, description: `Reset user ${interaction.options.getUser("user")?.tag} \nI reset their usage count${interaction.options.getBoolean("dupes") ? ", and their dupes." : " only."}`}) ]});
                 await Utils.sendWebhook(interaction.guild!.id, Utils.WebhookType.Logs, [
-                    Utils.getEmbed(Utils.EmbedType.Purple, {
+                    Utils.getEmbed(Utils.EmbedType.Default, {
                         title: `User Reset`,
                         fields: [
                             {
@@ -49,10 +49,10 @@ export default class extends Command {
                     return;
                 }
 
-                await interaction.editReply({ embeds: [ Utils.getEmbed(Utils.EmbedType.Purple, { title: `Success! Reset all users.`, description: `I reset their usage count${interaction.options.getBoolean("dupes") ? ", and reset their dupes." : " only."}`}) ]});
+                await interaction.editReply({ embeds: [ Utils.getEmbed(Utils.EmbedType.Default, { title: `Success! Reset all users.`, description: `I reset their usage count${interaction.options.getBoolean("dupes") ? ", and reset their dupes." : " only."}`}) ]});
 
                 await Utils.sendWebhook(interaction.guild!.id, Utils.WebhookType.Logs, [
-                    Utils.getEmbed(Utils.EmbedType.Purple, {
+                    Utils.getEmbed(Utils.EmbedType.Default, {
                         title: `All Users Reset`,
                         fields: [
                             {

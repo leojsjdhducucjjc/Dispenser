@@ -30,12 +30,12 @@ export default class extends Command {
                     return;
                 }
 
-                await interaction.editReply({ embeds: [ Utils.getEmbed(Utils.EmbedType.Purple, { title: `Success`, description: `Added role <@&${interaction.options.getRole("role")!.id}>.`}) ]});
+                await interaction.editReply({ embeds: [ Utils.getEmbed(Utils.EmbedType.Default, { title: `Success`, description: `Added role <@&${interaction.options.getRole("role")!.id}>.`}) ]});
 
                 await bot.setAdminRoles();
 
                 await Utils.sendWebhook(interaction.guild!.id, 2, [
-                    Utils.getEmbed(Utils.EmbedType.Purple, {
+                    Utils.getEmbed(Utils.EmbedType.Default, {
                         title: `Role Added`,
                         fields: [
                             {
@@ -66,12 +66,12 @@ export default class extends Command {
                     await interaction.editReply({ embeds: [ Utils.getEmbed(Utils.EmbedType.Red, { title: `Failed to remove role`, description: e!.toString() }) ] });
                     return;
                 }
-                await interaction.editReply({ embeds: [ Utils.getEmbed(Utils.EmbedType.Purple, { title: `Success`, description: `Removed role <@&${interaction.options.getRole("role")!.id}>.`}) ]});
+                await interaction.editReply({ embeds: [ Utils.getEmbed(Utils.EmbedType.Default, { title: `Success`, description: `Removed role <@&${interaction.options.getRole("role")!.id}>.`}) ]});
 
                 await bot.setAdminRoles();
 
                 await Utils.sendWebhook(interaction.guild!.id, 2, [
-                    Utils.getEmbed(Utils.EmbedType.Purple, {
+                    Utils.getEmbed(Utils.EmbedType.Default, {
                         title: `Role Removed`,
                         fields: [
                             {
@@ -105,12 +105,12 @@ export default class extends Command {
                     return;
                 }
 
-                await interaction.editReply({ embeds: [ Utils.getEmbed(Utils.EmbedType.Purple, { title: `Success`, description: `Edited role <@&${interaction.options.getRole("role")!.id}>.`}) ]});
+                await interaction.editReply({ embeds: [ Utils.getEmbed(Utils.EmbedType.Default, { title: `Success`, description: `Edited role <@&${interaction.options.getRole("role")!.id}>.`}) ]});
 
                 await bot.setAdminRoles();
 
                 await Utils.sendWebhook(interaction.guild!.id, 2, [
-                    Utils.getEmbed(Utils.EmbedType.Purple, {
+                    Utils.getEmbed(Utils.EmbedType.Default, {
                         title: `Role Edited`,
                         fields: [
                             {
@@ -138,7 +138,7 @@ export default class extends Command {
                 try {
                     await interaction.editReply({
                         embeds: [
-                            Utils.getEmbed(Utils.EmbedType.Purple, {
+                            Utils.getEmbed(Utils.EmbedType.Default, {
                                 title: "All Roles",
                                 description: (await DB.getAll(interaction.guildId!, "roles")).map((r: any) => {
                                     return `> <@&${r.roleId}>\n${r.specialLimit ? `> Special Limit: ${r.specialLimit}\n` : ""} ${r.adminRole ? "> :lock_with_ink_pen: Admin role\n" : ""}`

@@ -29,7 +29,7 @@ export default class extends Modal {
         });
 
         await Utils.sendWebhook(interaction.guildId!, Utils.WebhookType.Logs, [
-            Utils.getEmbed(Utils.EmbedType.Purple, {
+            Utils.getEmbed(Utils.EmbedType.Default, {
                 title: `Usage Modified`,
                 description: `Allowed usage for this guild has been modified.`,
                 fields: [

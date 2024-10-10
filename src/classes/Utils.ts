@@ -3,10 +3,8 @@ import {Bot} from "./Bot";
 
 export default class Utils {
     static EmbedType = {
-        Red: 0xff0000,
-        Purple: 0x814fff,
-        Black: 0x000000,
-        Random: Math.floor(Math.random() * 16777215)
+        Default: 0x0099ff,
+        Red: 0xff0000
     }
 
     static getEmbed(color: number, data: { title?: string, description?: string, imageURL?: string, author?: { name: string, iconURL: string }, fields?: { name: string, value: string, inline?: boolean }[], footer?: { text: string, iconURL: string } }): EmbedBuilder {

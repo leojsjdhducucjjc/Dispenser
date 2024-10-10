@@ -11,7 +11,7 @@ export default class extends Command {
         await interaction.deferReply({ ephemeral: interaction.options.getBoolean("ephemeral") ?? true });
         await interaction.editReply({
             embeds: [
-                Utils.getEmbed(Utils.EmbedType.Black, {
+                Utils.getEmbed(Utils.EmbedType.Default, {
                     title: "Configuration Panel",
                     description: "This is the admin configuration panel.\nYou can configure the bot using the buttons below.",
                     fields: [

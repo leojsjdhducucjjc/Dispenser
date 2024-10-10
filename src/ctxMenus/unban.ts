@@ -18,11 +18,11 @@ export default class extends ContextMenu {
         }
 
         await interaction.editReply({ embeds: [
-                Utils.getEmbed(Utils.EmbedType.Purple, { title: `Success!`, description: `Unbanned user <@${interaction.targetId}>` })
+                Utils.getEmbed(Utils.EmbedType.Default, { title: `Success!`, description: `Unbanned user <@${interaction.targetId}>` })
             ]})
 
         await Utils.sendWebhook(interaction.guildId!, Utils.WebhookType.Logs, [
-            Utils.getEmbed(Utils.EmbedType.Purple, {
+            Utils.getEmbed(Utils.EmbedType.Default, {
                 title: `User Unbanned`,
                 fields: [
                     {

@@ -32,7 +32,7 @@ export default class extends Command {
 
                 let msg = await interaction.channel!.send({
                     embeds: [
-                        Utils.getEmbed(Utils.EmbedType.Purple, {
+                        Utils.getEmbed(Utils.EmbedType.Default, {
                             title: "Dispenser",
                             description: "Click the buttons below to dispense items.",
                         }),
@@ -47,7 +47,7 @@ export default class extends Command {
                 })
 
                 await Utils.sendWebhook(interaction.guildId!, Utils.WebhookType.Logs, [
-                    Utils.getEmbed(Utils.EmbedType.Purple, {
+                    Utils.getEmbed(Utils.EmbedType.Default, {
                         title: `Panel Created`,
                         fields: [
                             {
@@ -96,7 +96,7 @@ export default class extends Command {
 
                 let m = await msg.edit({
                     embeds: [
-                        Utils.getEmbed(Utils.EmbedType.Purple, {
+                        Utils.getEmbed(Utils.EmbedType.Default, {
                             title: "Dispenser",
                             description: "Click the buttons below to dispense items.",
                         }),
@@ -109,7 +109,7 @@ export default class extends Command {
                 })
 
                 await Utils.sendWebhook(interaction.guildId!, Utils.WebhookType.Logs, [
-                    Utils.getEmbed(Utils.EmbedType.Purple, {
+                    Utils.getEmbed(Utils.EmbedType.Default, {
                         title: `Panel Updated`,
                         fields: [
                             {

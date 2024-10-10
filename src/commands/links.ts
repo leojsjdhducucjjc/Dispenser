@@ -42,7 +42,7 @@ export default class extends Command {
                     const dbGroups = await DB.getAll(interaction.guildId!, "groups"); 
                     await interaction.editReply({
                         embeds: [
-                            Utils.getEmbed(Utils.EmbedType.Purple, {
+                            Utils.getEmbed(Utils.EmbedType.Default, {
                                 title: "All Links",
                                 description: dbGroups.map((g: any) => {
                                     const domainsList = g.domains.length >= 1 ? g.domains.map((d: any) => `\`${d.domainName}\``).join(", ") : `No links in this group`;
@@ -78,7 +78,7 @@ export default class extends Command {
 
                     await interaction.editReply({
                         embeds: [
-                            Utils.getEmbed(Utils.EmbedType.Purple, { 
+                            Utils.getEmbed(Utils.EmbedType.Default, { 
                                 title: `Success`, 
                                 description: `All links have been synced with the database.` 
                             })
@@ -86,7 +86,7 @@ export default class extends Command {
                     });
 
                     await Utils.sendWebhook(interaction.guildId!, Utils.WebhookType.Logs, [
-                        Utils.getEmbed(Utils.EmbedType.Purple, {
+                        Utils.getEmbed(Utils.EmbedType.Default, {
                             title: `Links Synced`,
                             description: `All links have been synced by <@${interaction.user.id}> (${interaction.user.tag} | ${interaction.user.id}).`
                         })
@@ -112,10 +112,10 @@ export default class extends Command {
                     return;
                 }
 
-                await interaction.editReply({ embeds: [ Utils.getEmbed(Utils.EmbedType.Purple, { title: `Success`, description: `Removed ${interaction.options.getString("link")!} from group \`${interaction.options.getString("group")}\`.`}) ] });
+                await interaction.editReply({ embeds: [ Utils.getEmbed(Utils.EmbedType.Default, { title: `Success`, description: `Removed ${interaction.options.getString("link")!} from group \`${interaction.options.getString("group")}\`.`}) ] });
 
                 await Utils.sendWebhook(interaction.guildId!, Utils.WebhookType.Logs, [
-                    Utils.getEmbed(Utils.EmbedType.Purple, {
+                    Utils.getEmbed(Utils.EmbedType.Default, {
                         title: `Link Removed`,
                         fields: [
                             {
